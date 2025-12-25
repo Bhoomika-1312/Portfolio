@@ -79,7 +79,7 @@ export default function Portfolio() {
     }
   }
 
-  
+
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -139,21 +139,21 @@ export default function Portfolio() {
     {
       title: "8085 Microprocessor Simulator",
       description: "Developed a Java-based 8085 simulator executing 20+ ISA instructions with modular and scalable design.",
-      tech: ["Java","OOPs"],
+      tech: ["Java", "OOPs"],
       github: "https://github.com/Bhoomika-1312/8085_Simulator",
     },
-    
+
     {
       title: "Blogging application",
       description: " Built a full-stack blogging platform with JWT authentication, secure password hashing, and role-based access for authors/admins.",
-      tech: ["MongoDB", "Express.js", "Node.js" , "EJS" , "REST APIs", "Jwt"],
+      tech: ["MongoDB", "Express.js", "Node.js", "EJS", "REST APIs", "Jwt"],
       github: "https://github.com/Bhoomika-1312/Blogs",
     },
     {
       title: "Employee management system",
       description:
         "Built a dual-role Admin + Employee system with context-based authentication and dynamic dashboards.",
-      tech: ["React","Tailwind CSS"],
+      tech: ["React", "Tailwind CSS"],
       github: "https://github.com/Bhoomika-1312/EMsystem",
       demo: "https://e-msystem-jlnz.vercel.app/",
     },
@@ -161,7 +161,7 @@ export default function Portfolio() {
       title: "Artice club's Website",
       description:
         "A web-based platform that enables an art club to showcase artworks and manage events, trips, and creative activities.",
-      tech: ["React","Tailwind CSS"],
+      tech: ["React", "Tailwind CSS"],
       github: "https://github.com/Bhoomika-1312/artive_final",
       demo: "https://artive-final.vercel.app/",
     },
@@ -175,7 +175,7 @@ export default function Portfolio() {
     {
       title: "Random Jokes Generator",
       description: "A simple way to add moments of humor.",
-      tech: ["Html" , "Vanilla css" , "Java Script"],
+      tech: ["Html", "Vanilla css", "Java Script"],
       github: "https://github.com/Bhoomika-1312/Random-Jokes.git",
       demo: "https://random-jokes-n6qh-es3uoptfn-bhoomika-1312s-projects.vercel.app/",
     },
@@ -233,9 +233,8 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary relative ${
-                    activeSection === item.id ? "text-primary" : "text-muted-foreground"
-                  }`}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary relative ${activeSection === item.id ? "text-primary" : "text-muted-foreground"
+                    }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
@@ -274,9 +273,8 @@ export default function Portfolio() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:bg-muted rounded-md ${
-                    activeSection === item.id ? "text-foreground" : "text-muted-foreground"
-                  }`}
+                  className={`block w-full text-left px-4 py-2 text-sm font-medium transition-colors hover:bg-muted rounded-md ${activeSection === item.id ? "text-foreground" : "text-muted-foreground"
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -290,14 +288,24 @@ export default function Portfolio() {
         id="home"
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative overflow-hidden"
       >
-        {/* Animated background gradient blobs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Hero Background */}
+        <div className="absolute inset-0 z-0 select-none">
+          <div className="absolute inset-0 bg-background/80 dark:bg-background/60 z-10" />
+          <img
+            src="/images/hero-bg.png"
+            alt="Hero Background"
+            className="w-full h-full object-cover opacity-50 dark:opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-20" />
+        </div>
+
+        {/* Abstract shapes for depth */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
           <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float" />
           <div
             className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"
             style={{ animationDelay: "2s" }}
           />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl animate-pulse" />
         </div>
 
         <div className="max-w-7xl mx-auto w-full relative z-10">
@@ -483,10 +491,10 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-      
 
-      <section id="skills" className=" py-20 px-4 sm:px-6 lg:px-8 bg-indigo-100 relative overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+
+      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-muted/30">
+        <div className="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none" />
         <div className="max-w-7xl mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center">
             Technical <span className="gradient-text">Skills</span>
@@ -495,17 +503,15 @@ export default function Portfolio() {
             {skills.map((skillGroup, index) => (
               <Card
                 key={skillGroup.category}
-                className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-t-4 hover:scale-105"
+                className="glass-effect border-primary/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 group"
                 style={{
-                  borderTopColor: `var(--chart-${(index % 5) + 1})`,
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <CardHeader>
-                  <CardTitle className="text-xl flex items-center gap-2">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl flex items-center gap-2 group-hover:text-primary transition-colors">
                     <div
-                      className="w-3 h-3 rounded-full animate-pulse"
-                      style={{ backgroundColor: `var(--chart-${(index % 5) + 1})` }}
+                      className="w-2 h-2 rounded-full bg-primary"
                     />
                     {skillGroup.category}
                   </CardTitle>
@@ -516,7 +522,7 @@ export default function Portfolio() {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="text-sm hover:bg-primary/20 hover:text-primary hover:border-primary transition-all duration-300 hover:scale-110"
+                        className="glass-effect border-0 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                       >
                         {skill}
                       </Badge>
@@ -529,43 +535,59 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="projects" className="bg-pink-100 py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative bg-background">
+        <div className="absolute inset-0 bg-pattern opacity-[0.02] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <h2 className="text-4xl font-bold mb-12 text-center">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <Card
                 key={project.title}
-                className="hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group border-primary/20 hover:border-primary/50 overflow-hidden"
+                className="glass-effect overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 group border-primary/10"
               >
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <CardHeader>
+                <div className="relative h-48 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
+                  <img
+                    src="/images/project-placeholder.png"
+                    alt={project.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+
+                <CardHeader className="relative z-20 -mt-12">
                   <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
+                  <CardDescription className="text-base leading-relaxed line-clamp-2">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
+
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
+                    {project.tech.slice(0, 4).map((tech) => (
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20 hover:border-primary transition-all duration-300"
+                        className="bg-background/50 backdrop-blur-xs border-primary/20"
                       >
                         {tech}
                       </Badge>
                     ))}
+                    {project.tech.length > 4 && (
+                      <Badge variant="outline" className="bg-background/50 border-primary/20">+{project.tech.length - 4}</Badge>
+                    )}
                   </div>
                 </CardContent>
+
                 <CardFooter className="flex gap-4">
                   <Button
-                    variant="outline"
+                    variant="ghost"
                     size="sm"
                     asChild
-                    className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 bg-transparent"
+                    className="hover:text-primary hover:bg-primary/10"
                   >
                     <a
                       href={project.github}
@@ -581,7 +603,7 @@ export default function Portfolio() {
                     <Button
                       size="sm"
                       asChild
-                      className="bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg shadow-primary/50 transition-all duration-300 hover:shadow-xl"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20"
                     >
                       <a
                         href={project.demo}
